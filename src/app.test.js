@@ -1,10 +1,17 @@
 const { main } = require("./app");
 const { reduceCountryByAnimals } = require("./filter/logic/reducer");
+const { addCountToCountries } = require("./count/logic/count");
 const { data } = require("./data");
 
 jest.mock("./filter/logic/reducer", () => {
   return {
     reduceCountryByAnimals: jest.fn(),
+  };
+});
+
+jest.mock("./count/logic/count", () => {
+  return {
+    addCountToCountries: jest.fn(),
   };
 });
 
@@ -102,5 +109,13 @@ describe("main", () => {
       ],
       { colors: true, depth: 6 }
     );
+  });
+
+  it("should call addCountToCountries provided count cli argument", () => {
+    jest.replaceProperty(process, "argv", ["node", "path", "--count"]);
+
+    main();
+
+    expect(addCountToCountries).toHaveBeenCalled();
   });
 });
