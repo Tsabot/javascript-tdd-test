@@ -2,6 +2,7 @@ const { getArgumentFromCli } = require("./utils/cli");
 const { data } = require("./data");
 const { reduceCountryByAnimals } = require("./filter/logic/reducer");
 const { addCountToCountries } = require("./count/logic/count");
+const { CLI_TYPE } = require("./constants/cli-type");
 
 const main = (autoRun = false) => {
   if (autoRun && !process.argv[2]) {
@@ -20,7 +21,7 @@ const main = (autoRun = false) => {
     return;
   }
 
-  if (type === "filter") {
+  if (type === CLI_TYPE.FILTER) {
     console.log(`Provided arg: ${arg}`);
 
     const filteredCountries = reduceCountryByAnimals(data, arg);
@@ -28,7 +29,7 @@ const main = (autoRun = false) => {
     console.dir(filteredCountries, { depth: 6, colors: true });
   }
 
-  if (type === "count") {
+  if (type === CLI_TYPE.COUNT) {
     const formatedCountries = addCountToCountries(data);
 
     console.dir(formatedCountries, { depth: 6, colors: true });
