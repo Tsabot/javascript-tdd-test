@@ -1,8 +1,8 @@
-const { executeFilterOnData } = require("./index");
-const { reduceCountryByAnimals } = require("./logic/reducer");
-const { data } = require("../data");
+const { main } = require("./app");
+const { reduceCountryByAnimals } = require("./filter/logic/reducer");
+const { data } = require("./data");
 
-jest.mock("./logic/reducer", () => {
+jest.mock("./filter/logic/reducer", () => {
   return {
     reduceCountryByAnimals: jest.fn(),
   };
@@ -12,18 +12,18 @@ beforeEach(() => {
   console.log = jest.fn();
 });
 
-describe("executeFilterOnData", () => {
+describe("main", () => {
   it("should log message if no cli argument was provided", () => {
     jest.replaceProperty(process, "argv", ["node", "path", "--fir=ry"]);
 
-    executeFilterOnData();
+    main();
 
     expect(console.log).toHaveBeenCalled();
   });
   it("should log provided cli argument", () => {
     jest.replaceProperty(process, "argv", ["node", "path", "--filter=ry"]);
 
-    executeFilterOnData();
+    main();
 
     expect(console.log).toHaveBeenCalledWith(`Provided arg: ry`);
   });
@@ -31,7 +31,7 @@ describe("executeFilterOnData", () => {
   it("should call reduceCountryByAnimals with cli arg", () => {
     jest.replaceProperty(process, "argv", ["node", "path", "--filter=ry"]);
 
-    executeFilterOnData();
+    main();
 
     expect(reduceCountryByAnimals).toHaveBeenCalledWith(data, "ry");
   });
@@ -67,7 +67,7 @@ describe("executeFilterOnData", () => {
       },
     ]);
 
-    executeFilterOnData();
+    main();
 
     expect(console.log).toHaveBeenCalledWith(`Provided arg: ry`);
     expect(console.log).toHaveBeenCalledWith([
