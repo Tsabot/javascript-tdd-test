@@ -1,4 +1,5 @@
 const { getArgumentFromCli } = require("./cli");
+const { CLI_TYPE } = require("../constants/cli-type");
 
 jest.replaceProperty(process, "argv", ["node", "path", "--filter=ry"]);
 
@@ -20,13 +21,13 @@ describe("getArgumentFromCli", () => {
 
     const { type } = getArgumentFromCli();
 
-    expect(type).toEqual("filter");
+    expect(type).toEqual(CLI_TYPE.FILTER);
   });
   it("should handle count", () => {
     jest.replaceProperty(process, "argv", ["node", "path", "--count"]);
 
     const { type } = getArgumentFromCli();
 
-    expect(type).toEqual("count");
+    expect(type).toEqual(CLI_TYPE.COUNT);
   });
 });

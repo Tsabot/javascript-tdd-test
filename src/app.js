@@ -1,10 +1,28 @@
+const { reduceCountryByAnimals } = require("./filter/reducer");
+const { addCountToCountries } = require("./count/count");
 const { getArgumentFromCli } = require("./utils/cli");
+const { CLI_TYPE } = require("./constants/cli-type");
+
 const { data } = require("./data");
-const { reduceCountryByAnimals } = require("./filter/logic/reducer");
-const { addCountToCountries } = require("./count/logic/count");
+
+const handleFilter = (filterBy) => {
+  console.log(`Provided arg: ${filterBy}`);
+
+  const filteredCountries = reduceCountryByAnimals(data, filterBy);
+
+  console.dir(filteredCountries, { depth: 6, colors: true });
+};
+
+const handleCount = () => {
+  const formatedCountries = addCountToCountries(data);
+
+  console.dir(formatedCountries, { depth: 6, colors: true });
+};
 
 const main = (autoRun = false) => {
   if (autoRun && !process.argv[2]) {
+    // To prevent Jest from starting main() on import
+
     return;
   }
 
@@ -18,18 +36,17 @@ const main = (autoRun = false) => {
     return;
   }
 
-  if (type === "filter") {
-    console.log(`Provided arg: ${arg}`);
+  switch (type) {
+    case CLI_TYPE.FILTER:
+      handleFilter(arg);
 
-    const filteredCountries = reduceCountryByAnimals(data, arg);
+      break;
+    case CLI_TYPE.COUNT:
+      handleCount();
 
-    console.dir(filteredCountries, { depth: 6, colors: true });
-  }
-
-  if (type === "count") {
-    const formatedCountries = addCountToCountries(data);
-
-    console.dir(formatedCountries, { depth: 6, colors: true });
+      break;
+    default:
+      break;
   }
 };
 

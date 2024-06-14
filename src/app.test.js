@@ -1,15 +1,15 @@
 const { main } = require("./app");
-const { reduceCountryByAnimals } = require("./filter/logic/reducer");
-const { addCountToCountries } = require("./count/logic/count");
+const { reduceCountryByAnimals } = require("./filter/reducer");
+const { addCountToCountries } = require("./count/count");
 const { data } = require("./data");
 
-jest.mock("./filter/logic/reducer", () => {
+jest.mock("./filter/reducer", () => {
   return {
     reduceCountryByAnimals: jest.fn(),
   };
 });
 
-jest.mock("./count/logic/count", () => {
+jest.mock("./count/count", () => {
   return {
     addCountToCountries: jest.fn(),
   };
