@@ -14,7 +14,11 @@ const countAndFormatName = (object, property) => {
 };
 
 const addCountToCountries = (countries) => {
-  return countries;
+  return countries.reduce((previousValue, currentValueCountry) => {
+    const newName = countAndFormatName(currentValueCountry, "people");
+
+    return [...previousValue, { ...currentValueCountry, name: newName }];
+  }, []);
 };
 
 module.exports = {

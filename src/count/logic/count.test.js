@@ -4,7 +4,11 @@ const {
   countAndFormatName,
   addCountToCountries,
 } = require("./count");
-const { mockedPerson, mockedCountry } = require("../../mock/mockData");
+const {
+  mockedPerson,
+  mockedCountry,
+  mockedCountries,
+} = require("../../mock/mockData");
 
 describe("concatCountInName", () => {
   it("should return both string as one", () => {
@@ -37,7 +41,7 @@ describe("count and format name", () => {
 
 describe("addCountToCountries", () => {
   it("should count the number of people and add it to all countries", () => {
-    const formatedCountries = addCountToCountries(mockedCountry);
+    const formatedCountries = addCountToCountries(mockedCountries);
 
     expect(formatedCountries).toEqual([
       {
