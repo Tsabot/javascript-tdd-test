@@ -17,7 +17,12 @@ const reduceAnimalsByName = (animals, includedName) => {
   }, []);
 };
 
+const reducePeopleByAnimals = (peoples, includedAnimalName) => {
+  return false;
+};
+
 module.exports = {
   doesNameIncludes,
   reduceAnimalsByName,
+  reducePeopleByAnimals,
 };
