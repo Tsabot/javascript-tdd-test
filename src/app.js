@@ -5,6 +5,8 @@ const { addCountToCountries } = require("./count/logic/count");
 
 const main = (autoRun = false) => {
   if (autoRun && !process.argv[2]) {
+    // To prevent Jest from starting main() on import
+
     return;
   }
 
