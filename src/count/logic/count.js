@@ -13,8 +13,13 @@ const countAndFormatName = (object, property) => {
   );
 };
 
+const addCountToCountries = (countries) => {
+  return countries;
+};
+
 module.exports = {
   concatCountInName,
   countPropertyOfObject,
   countAndFormatName,
+  addCountToCountries,
 };
