@@ -1,8 +1,9 @@
-const { getArgumentFromCli } = require("./utils/cli");
-const { data } = require("./data");
 const { reduceCountryByAnimals } = require("./filter/logic/reducer");
 const { addCountToCountries } = require("./count/logic/count");
+const { getArgumentFromCli } = require("./utils/cli");
 const { CLI_TYPE } = require("./constants/cli-type");
+
+const { data } = require("./data");
 
 const main = (autoRun = false) => {
   if (autoRun && !process.argv[2]) {
