@@ -1,90 +1,58 @@
-# Javascript developer test
+# Javascript test
 
-## Filter
+This is my solution to the exercise given in the [instructions](./INSTRUCTIONS.md)
 
-Your job is to write a command-line interface in Node.js. 
-This program has to filter a list of elements containing a pattern.
+## How to use
 
-Details:
-- In the following file `data.js`, there are `Countries` containing `Peoples` containing `Animals`.
-- Only animals containing the pattern passed as argument (e.g. `ry`) are displayed. The order should be kept intact.
-- Empty array after filtering are NOT returned.
+```bash
+// to filter on any keyword in animals name
+node ./src/app.js --filter=panda
 
-Sample of running the command, and its output:
-
-```shell script
-$ node app.js --filter=ry
-[
-  {
-    name: 'Uzuzozne',
-    people: [
-      {
-        name: 'Lillie Abbott',
-        animals: [
-          {
-            name: 'John Dory'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name: 'Satanwi',
-    people: [
-      {
-        name: 'Anthony Bruno',
-        animals: [
-          {
-            name: 'Oryx'
-          }
-        ]
-      }
-    ]
-  }
-]
+// to add count of childs in names
+node ./src/app.js --count
 ```
 
-## Count
+## Technical choice
 
-The next goal is to print the counts of People and Animals by counting the number of children and appending it in the name, eg. `Satanwi [2]`.
+### File structure
 
-Sample of running the command, and its output:
+Went for the simplest approach given the lack of module and complexity.
+If the app had an express and a DB connection, I would have implemented the Hexagonal architecture, with filter and count in domain. The cli/ express as application entry-point and DB handling in infrastructure with Nest.js. Probably with OOP and TS.
 
-```shell script
-node app.js --count
-[ { name: 'Dillauti [5]',
-    people:
-     [ { name: 'Winifred Graham [6]',
-         animals:
-          [ { name: 'Anoa' },
-            { name: 'Duck' },
-            { name: 'Narwhal' },
-            { name: 'Badger' },
-            { name: 'Cobra' },
-            { name: 'Crow' } ] },
-       { name: 'Blanche Viciani [8]',
-         animals:
-          [ { name: 'Barbet' },
-            { name: 'Rhea' },
-            { name: 'Snakes' },
-            { name: 'Antelope' },
-            { name: 'Echidna' },
-            { name: 'Crow' },
-            { name: 'Guinea Fowl' },
-            { name: 'Deer Mouse' } ] },
-      ...
-...
-]
-```
+### Typescript
 
-## Requirements
+I thought about using Typescript initialy. Looking at the Data, it seems realy simplistic, not giving typing a lot of advantage over pure JS.
+Since it was not given as a requesite and time was an issue for me, i decided to go to vanilla JS.
 
-- The code must be available in a GIT repository
-- No library/modules should be used, except for the testing library
+### TDD
 
-## Appreciation
+On seeing the instructions, I felt like TDD was the best approach so you could see my logical path.
+To keep a high level of readability in commits, I squashed them on merge. To see all the sub-commits, please refer to the PR.
+Ex:
+https://github.com/Tsabot/adeo-test/pull/1
 
-We will be really attentive to:
+I do not use this methodology often so I might have gone through it a times !
 
-- Code readability, structure and consistency
-- Tests, and how they are written
+### OOP
+
+Given the scale and the complexity of the Data. I felt like using classes would not provide much benefits and went for a functionnal approach. I believe that well structure functionnal code can be the better approach on a micro-service type of architecture.
+It will not be the case for a bigger monolithic approach thought.
+
+### Linter
+
+I forgot to implement them initialy since I had some form of auto-format directly in my VS code. Sorry for inconvenience.
+
+## Debatable choice
+
+### addCountToCountries
+
+This function is getting a bit too big and having a double reduce can be considered too much. This could be splited into a new sub handler "addCountToPeople" for instance
+
+### autoRun
+
+I did not know what was the cleanest way to deal with this issue (Jest app tests crashing on import of main()). I felt my approach was understandable but there might be a better way.
+
+### reduceCountryByAnimals
+
+Both reduceCountryByAnimals and reducePeopleByAnimals share a lot of logic.
+I didn't know if another level of abstraction was the best approach thought. I felt like it would reduce undestandability and maintability and decided not to implement it further.
