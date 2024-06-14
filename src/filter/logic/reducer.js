@@ -18,14 +18,14 @@ const reduceAnimalsByName = (animals, includedName) => {
 };
 
 const reducePeopleByAnimals = (peoples, includedAnimalName) => {
-  return peoples.reduce((reducedpeoples, currentValue) => {
-    const animals = reduceAnimalsByName(
-      currentValue.animals,
+  return peoples.reduce((reducedpeoples, currentPeople) => {
+    const reducedAnimals = reduceAnimalsByName(
+      currentPeople.animals,
       includedAnimalName
     );
 
-    if (animals.length > 0) {
-      return [...reducedpeoples, { ...currentValue, animals }];
+    if (reducedAnimals.length > 0) {
+      return [...reducedpeoples, { ...currentPeople, animals: reducedAnimals }];
     }
 
     return reducedpeoples;
