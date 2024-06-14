@@ -7,7 +7,10 @@ const countPropertyOfObject = (object, property) => {
 };
 
 const countAndFormatName = (object, property) => {
-  return object.name;
+  return concatCountInName(
+    object.name,
+    countPropertyOfObject(object, property)
+  );
 };
 
 module.exports = {
