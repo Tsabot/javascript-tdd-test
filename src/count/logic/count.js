@@ -2,11 +2,11 @@ const concatCountInName = (name, count) => {
   return `${name} [${count}]`;
 };
 
-const countAnimalOfPerson = (person) => {
-  return person.animals.length;
+const countPropertyOfObject = (object, property) => {
+  return object[`${property}`].length;
 };
 
 module.exports = {
   concatCountInName,
-  countAnimalOfPerson,
+  countPropertyOfObject,
 };
