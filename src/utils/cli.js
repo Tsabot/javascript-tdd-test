@@ -5,6 +5,10 @@ const getArgumentFromCli = () => {
     return { arg: cliArg.slice(9), type: "filter" };
   }
 
+  if (cliArg === "--count") {
+    return { type: "count" };
+  }
+
   return { arg: "" };
 };
 

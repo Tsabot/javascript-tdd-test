@@ -22,4 +22,11 @@ describe("getArgumentFromCli", () => {
 
     expect(type).toEqual("filter");
   });
+  it("should handle count", () => {
+    jest.replaceProperty(process, "argv", ["node", "path", "--count"]);
+
+    const { type } = getArgumentFromCli();
+
+    expect(type).toEqual("count");
+  });
 });
