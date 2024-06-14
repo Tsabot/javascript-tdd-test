@@ -2,10 +2,10 @@ const getArgumentFromCli = () => {
   const cliArg = process.argv[2];
 
   if (cliArg.includes("filter")) {
-    return cliArg.slice(9);
+    return { arg: cliArg.slice(9), type: "filter" };
   }
 
-  return "";
+  return { arg: "" };
 };
 
 module.exports = {
