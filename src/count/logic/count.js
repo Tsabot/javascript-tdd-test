@@ -14,10 +14,29 @@ const countAndFormatName = (object, property) => {
 };
 
 const addCountToCountries = (countries) => {
-  return countries.reduce((previousValue, currentValueCountry) => {
-    const newName = countAndFormatName(currentValueCountry, "people");
+  return countries.reduce((formatedCountries, currentCountry) => {
+    const formatedCountryName = countAndFormatName(currentCountry, "people");
 
-    return [...previousValue, { ...currentValueCountry, name: newName }];
+    const formatedPeople = currentCountry.people.reduce(
+      (modifiedPeoples, currentPerson) => {
+        const formatedPersonName = countAndFormatName(currentPerson, "animals");
+
+        return [
+          ...modifiedPeoples,
+          { ...currentPerson, name: formatedPersonName },
+        ];
+      },
+      []
+    );
+
+    return [
+      ...formatedCountries,
+      {
+        ...currentCountry,
+        name: formatedCountryName,
+        people: formatedPeople,
+      },
+    ];
   }, []);
 };
 

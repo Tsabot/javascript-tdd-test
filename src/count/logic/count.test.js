@@ -48,7 +48,7 @@ describe("addCountToCountries", () => {
         name: "Dillauti [5]",
         people: [
           {
-            name: "Winifred Graham",
+            name: "Winifred Graham [6]",
             animals: [
               { name: "Anoa" },
               { name: "Duck" },
@@ -59,7 +59,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Blanche Viciani",
+            name: "Blanche Viciani [8]",
             animals: [
               { name: "Barbet" },
               { name: "Rhea" },
@@ -72,7 +72,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Philip Murray",
+            name: "Philip Murray [7]",
             animals: [
               { name: "Sand Dollar" },
               { name: "Buzzard" },
@@ -84,7 +84,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Bobby Ristori",
+            name: "Bobby Ristori [9]",
             animals: [
               { name: "Kowari" },
               { name: "Caecilian" },
@@ -98,7 +98,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Louise Pinzauti",
+            name: "Louise Pinzauti [5]",
             animals: [
               { name: "Manta Ray" },
               { name: "Nubian Ibex" },
@@ -113,7 +113,7 @@ describe("addCountToCountries", () => {
         name: "Tohabdal [8]",
         people: [
           {
-            name: "Effie Houghton",
+            name: "Effie Houghton [7]",
             animals: [
               { name: "Zebra" },
               { name: "Ring-tailed Lemur" },
@@ -125,7 +125,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Essie Bennett",
+            name: "Essie Bennett [7]",
             animals: [
               { name: "Aldabra Tortoise" },
               { name: "Patagonian Toothfish" },
@@ -137,7 +137,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Owen Bongini",
+            name: "Owen Bongini [5]",
             animals: [
               { name: "Zebrashark" },
               { name: "Dogs" },
@@ -147,7 +147,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Alexander Fleury",
+            name: "Alexander Fleury [7]",
             animals: [
               { name: "Gelada" },
               { name: "Rattlesnake" },
@@ -159,7 +159,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Curtis Fuchs",
+            name: "Curtis Fuchs [6]",
             animals: [
               { name: "Squirrel" },
               { name: "Falcon" },
@@ -170,7 +170,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Maud Lorenzo",
+            name: "Maud Lorenzo [7]",
             animals: [
               { name: "Bush Dog" },
               { name: "Sea Urchin" },
@@ -182,7 +182,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Linnie Lamb",
+            name: "Linnie Lamb [7]",
             animals: [
               { name: "Burro" },
               { name: "African Wild Dog" },
@@ -194,7 +194,7 @@ describe("addCountToCountries", () => {
             ],
           },
           {
-            name: "Randall Benoît",
+            name: "Randall Benoît [5]",
             animals: [
               { name: "Chameleons" },
               { name: "Bee-eater" },
