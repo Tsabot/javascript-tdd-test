@@ -1,5 +1,5 @@
 const concatValueInString = (string, additionnalValue) => {
-  return "";
+  return `${string} ${additionnalValue}`;
 };
 
 module.exports = {
