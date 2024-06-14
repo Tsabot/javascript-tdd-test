@@ -32,8 +32,24 @@ const reducePeopleByAnimals = (peoples, includedAnimalName) => {
   }, []);
 };
 
+const reduceCountryByAnimals = (countries, includedAnimalName) => {
+  return countries.reduce((reducedCountries, currentValue) => {
+    const people = reducePeopleByAnimals(
+      currentValue.people,
+      includedAnimalName
+    );
+
+    if (people.length > 0) {
+      return [...reducedCountries, { ...currentValue, people }];
+    }
+
+    return reducedCountries;
+  }, []);
+};
+
 module.exports = {
   doesNameIncludes,
   reduceAnimalsByName,
   reducePeopleByAnimals,
+  reduceCountryByAnimals,
 };
