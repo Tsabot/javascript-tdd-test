@@ -5,6 +5,20 @@ const { CLI_TYPE } = require("./constants/cli-type");
 
 const { data } = require("./data");
 
+const handleFilter = (filterBy) => {
+  console.log(`Provided arg: ${filterBy}`);
+
+  const filteredCountries = reduceCountryByAnimals(data, filterBy);
+
+  console.dir(filteredCountries, { depth: 6, colors: true });
+};
+
+const handleCount = () => {
+  const formatedCountries = addCountToCountries(data);
+
+  console.dir(formatedCountries, { depth: 6, colors: true });
+};
+
 const main = (autoRun = false) => {
   if (autoRun && !process.argv[2]) {
     // To prevent Jest from starting main() on import
@@ -22,18 +36,17 @@ const main = (autoRun = false) => {
     return;
   }
 
-  if (type === CLI_TYPE.FILTER) {
-    console.log(`Provided arg: ${arg}`);
+  switch (type) {
+    case CLI_TYPE.FILTER:
+      handleFilter(arg);
 
-    const filteredCountries = reduceCountryByAnimals(data, arg);
+      break;
+    case CLI_TYPE.COUNT:
+      handleCount();
 
-    console.dir(filteredCountries, { depth: 6, colors: true });
-  }
-
-  if (type === CLI_TYPE.COUNT) {
-    const formatedCountries = addCountToCountries(data);
-
-    console.dir(formatedCountries, { depth: 6, colors: true });
+      break;
+    default:
+      break;
   }
 };
 
