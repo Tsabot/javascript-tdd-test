@@ -4,7 +4,12 @@ const doesNameIncludes = (initialValue, includedString) => {
 
 const reduceAnimalsByName = (animals, includedName) => {
   return animals.reduce((reducedAnimals, currentAnimal) => {
-    if (doesNameIncludes(currentAnimal.name, includedName)) {
+    if (
+      doesNameIncludes(
+        currentAnimal.name.toLowerCase(),
+        includedName.toLowerCase()
+      )
+    ) {
       return [...reducedAnimals, currentAnimal];
     }
 
