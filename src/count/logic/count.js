@@ -1,7 +1,7 @@
-const concatValueInString = (string, additionnalValue) => {
-  return `${string} ${additionnalValue}`;
+const concatCountInName = (name, count) => {
+  return `${name} [${count}]`;
 };
 
 module.exports = {
-  concatValueInString,
+  concatCountInName,
 };
