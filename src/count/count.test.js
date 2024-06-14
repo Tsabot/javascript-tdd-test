@@ -4,7 +4,7 @@ const {
   addCountToCountries,
 } = require("./count");
 
-const { mockedPerson, mockedCountries } = require("../../mock/mockData");
+const { mockedPerson, mockedCountries } = require("../mock/mockData");
 
 describe("concatCountInName", () => {
   it("should return both string as one", () => {

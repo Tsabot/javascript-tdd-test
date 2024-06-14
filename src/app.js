@@ -1,5 +1,5 @@
-const { reduceCountryByAnimals } = require("./filter/logic/reducer");
-const { addCountToCountries } = require("./count/logic/count");
+const { reduceCountryByAnimals } = require("./filter/reducer");
+const { addCountToCountries } = require("./count/count");
 const { getArgumentFromCli } = require("./utils/cli");
 const { CLI_TYPE } = require("./constants/cli-type");
 
