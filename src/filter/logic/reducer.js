@@ -3,7 +3,13 @@ const doesNameIncludes = (initialValue, includedString) => {
 };
 
 const reduceAnimalsByName = (animals, includedName) => {
-  return [];
+  return animals.reduce((reducedAnimals, currentValue) => {
+    if (currentValue.name.includes(includedName)) {
+      return [...reducedAnimals, currentValue];
+    }
+
+    return reducedAnimals;
+  }, []);
 };
 
 module.exports = {
