@@ -7,6 +7,18 @@ const mockedAnimals = [
   { name: "Crow" },
 ];
 
+const mockedPerson = {
+  name: "Winifred Graham",
+  animals: [
+    { name: "Anoa" },
+    { name: "Duck" },
+    { name: "Narwhal" },
+    { name: "Badger" },
+    { name: "Cobra" },
+    { name: "Crow" },
+  ],
+};
+
 const mockedPeople = [
   {
     name: "Winifred Graham",
@@ -237,5 +249,6 @@ const mockedCountries = [
 module.exports = {
   mockedAnimals,
   mockedPeople,
+  mockedPerson,
   mockedCountries,
 };

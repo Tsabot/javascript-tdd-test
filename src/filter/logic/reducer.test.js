@@ -9,7 +9,7 @@ const {
   mockedAnimals,
   mockedCountries,
   mockedPeople,
-} = require("../mock/mockData");
+} = require("../../mock/mockData");
 
 describe("doesNameIncludes", () => {
   it("should return true if string is included", () => {
