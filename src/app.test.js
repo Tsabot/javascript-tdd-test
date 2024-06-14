@@ -10,6 +10,7 @@ jest.mock("./filter/logic/reducer", () => {
 
 beforeEach(() => {
   console.log = jest.fn();
+  console.dir = jest.fn();
 });
 
 describe("main", () => {
@@ -70,33 +71,36 @@ describe("main", () => {
     main();
 
     expect(console.log).toHaveBeenCalledWith(`Provided arg: ry`);
-    expect(console.log).toHaveBeenCalledWith([
-      {
-        name: "Uzuzozne",
-        people: [
-          {
-            name: "Lillie Abbott",
-            animals: [
-              {
-                name: "John Dory",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Satanwi",
-        people: [
-          {
-            name: "Anthony Bruno",
-            animals: [
-              {
-                name: "Oryx",
-              },
-            ],
-          },
-        ],
-      },
-    ]);
+    expect(console.dir).toHaveBeenCalledWith(
+      [
+        {
+          name: "Uzuzozne",
+          people: [
+            {
+              name: "Lillie Abbott",
+              animals: [
+                {
+                  name: "John Dory",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "Satanwi",
+          people: [
+            {
+              name: "Anthony Bruno",
+              animals: [
+                {
+                  name: "Oryx",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      { colors: true, depth: 6 }
+    );
   });
 });

@@ -22,7 +22,7 @@ const main = (autoRun = false) => {
   if (type === "filter") {
     const filteredCountries = reduceCountryByAnimals(data, arg);
 
-    console.log(filteredCountries);
+    console.dir(filteredCountries, { depth: 6, colors: true });
   }
 };
 
