@@ -5,7 +5,7 @@ const getArgumentFromCli = () => {
     return cliArg.slice(9);
   }
 
-  return cliArg;
+  return "";
 };
 
 module.exports = {

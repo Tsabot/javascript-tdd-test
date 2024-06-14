@@ -8,4 +8,11 @@ describe("getArgumentFromCli", () => {
 
     expect(string).toEqual("ry");
   });
+  it("should return empty string otherwise", () => {
+    jest.replaceProperty(process, "argv", ["node", "path", "--fir=ry"]);
+
+    const string = getArgumentFromCli();
+
+    expect(string).toEqual("");
+  });
 });
