@@ -15,7 +15,9 @@ const executeFilterOnData = () => {
 
   console.log(`Provided arg: ${filterArg}`);
 
-  reduceCountryByAnimals(data, filterArg);
+  const filteredCountries = reduceCountryByAnimals(data, filterArg);
+
+  console.log(filteredCountries);
 };
 
 module.exports = {

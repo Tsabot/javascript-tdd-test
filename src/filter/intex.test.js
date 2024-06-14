@@ -35,4 +35,68 @@ describe("executeFilterOnData", () => {
 
     expect(reduceCountryByAnimals).toHaveBeenCalledWith(data, "ry");
   });
+
+  it("should log filtered data", () => {
+    jest.replaceProperty(process, "argv", ["node", "path", "--filter=ry"]);
+    reduceCountryByAnimals.mockReturnValue([
+      {
+        name: "Uzuzozne",
+        people: [
+          {
+            name: "Lillie Abbott",
+            animals: [
+              {
+                name: "John Dory",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Satanwi",
+        people: [
+          {
+            name: "Anthony Bruno",
+            animals: [
+              {
+                name: "Oryx",
+              },
+            ],
+          },
+        ],
+      },
+    ]);
+
+    executeFilterOnData();
+
+    expect(console.log).toHaveBeenCalledWith(`Provided arg: ry`);
+    expect(console.log).toHaveBeenCalledWith([
+      {
+        name: "Uzuzozne",
+        people: [
+          {
+            name: "Lillie Abbott",
+            animals: [
+              {
+                name: "John Dory",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Satanwi",
+        people: [
+          {
+            name: "Anthony Bruno",
+            animals: [
+              {
+                name: "Oryx",
+              },
+            ],
+          },
+        ],
+      },
+    ]);
+  });
 });
