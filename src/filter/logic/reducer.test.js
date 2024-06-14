@@ -28,4 +28,9 @@ describe("reduce animals", () => {
 
     expect(filteredAnimals).toEqual([{ name: "Duck" }]);
   });
+  it("shouldn't return animals if string is not included in their name", () => {
+    const filteredAnimals = reduceAnimalsByName(mockedAnimals, "z");
+
+    expect(filteredAnimals).toEqual([]);
+  });
 });

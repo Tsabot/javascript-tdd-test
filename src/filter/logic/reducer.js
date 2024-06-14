@@ -3,9 +3,9 @@ const doesNameIncludes = (initialValue, includedString) => {
 };
 
 const reduceAnimalsByName = (animals, includedName) => {
-  return animals.reduce((reducedAnimals, currentValue) => {
-    if (currentValue.name.includes(includedName)) {
-      return [...reducedAnimals, currentValue];
+  return animals.reduce((reducedAnimals, currentAnimal) => {
+    if (doesNameIncludes(currentAnimal.name, includedName)) {
+      return [...reducedAnimals, currentAnimal];
     }
 
     return reducedAnimals;
