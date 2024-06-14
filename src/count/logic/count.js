@@ -3,7 +3,7 @@ const concatCountInName = (name, count) => {
 };
 
 const countAnimalOfPerson = (person) => {
-  return 0;
+  return person.animals.length;
 };
 
 module.exports = {
