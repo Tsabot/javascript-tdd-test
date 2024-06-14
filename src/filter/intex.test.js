@@ -17,6 +17,6 @@ describe("executeFilterOnData", () => {
 
     executeFilterOnData();
 
-    expect(console.log).toHaveBeenCalledWith("ry");
+    expect(console.log).toHaveBeenCalledWith(`Provided arg: ry`);
   });
 });

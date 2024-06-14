@@ -10,6 +10,8 @@ const executeFilterOnData = () => {
 
     return;
   }
+
+  console.log(`Provided arg: ${filterArg}`);
 };
 
 module.exports = {
