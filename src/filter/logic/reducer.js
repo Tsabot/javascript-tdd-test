@@ -18,7 +18,18 @@ const reduceAnimalsByName = (animals, includedName) => {
 };
 
 const reducePeopleByAnimals = (peoples, includedAnimalName) => {
-  return false;
+  return peoples.reduce((reducedpeoples, currentValue) => {
+    const animals = reduceAnimalsByName(
+      currentValue.animals,
+      includedAnimalName
+    );
+
+    if (animals.length > 0) {
+      return [...reducedpeoples, { ...currentValue, animals }];
+    }
+
+    return reducedpeoples;
+  }, []);
 };
 
 module.exports = {
