@@ -1,9 +1,14 @@
-const { isSameName } = require("./reducer");
+const { doesNameIncludes } = require("./reducer");
 
-describe("isSameName", () => {
-  it("should return true if same string is passed", () => {
-    const bool = isSameName("charle", "charle");
+describe("doesNameIncludes", () => {
+  it("should return true if string is included", () => {
+    const bool = doesNameIncludes("charle", "char");
 
     expect(bool).toEqual(true);
+  });
+  it("should return false if string is not included", () => {
+    const bool = doesNameIncludes("charle", "chor");
+
+    expect(bool).toEqual(false);
   });
 });

@@ -1,7 +1,7 @@
-const isSameName = (initialValue, comparedString) => {
-  return initialValue === comparedString;
+const doesNameIncludes = (initialValue, includedString) => {
+  return initialValue.includes(includedString);
 };
 
 module.exports = {
-  isSameName,
+  doesNameIncludes,
 };
