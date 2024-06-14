@@ -4,15 +4,22 @@ jest.replaceProperty(process, "argv", ["node", "path", "--filter=ry"]);
 
 describe("getArgumentFromCli", () => {
   it("should get argument from cli", () => {
-    const string = getArgumentFromCli();
+    const { arg } = getArgumentFromCli();
 
-    expect(string).toEqual("ry");
+    expect(arg).toEqual("ry");
   });
   it("should return empty string otherwise", () => {
     jest.replaceProperty(process, "argv", ["node", "path", "--fir=ry"]);
 
-    const string = getArgumentFromCli();
+    const { arg } = getArgumentFromCli();
 
-    expect(string).toEqual("");
+    expect(arg).toEqual("");
+  });
+  it("should return the type of command", () => {
+    jest.replaceProperty(process, "argv", ["node", "path", "--filter=ry"]);
+
+    const { type } = getArgumentFromCli();
+
+    expect(type).toEqual("filter");
   });
 });
