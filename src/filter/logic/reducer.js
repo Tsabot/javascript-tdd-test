@@ -1,5 +1,5 @@
-const isSameName = () => {
-  return false;
+const isSameName = (initialValue, comparedString) => {
+  return initialValue === comparedString;
 };
 
 module.exports = {
