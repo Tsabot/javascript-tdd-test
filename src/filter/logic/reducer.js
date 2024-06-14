@@ -33,14 +33,17 @@ const reducePeopleByAnimals = (peoples, includedAnimalName) => {
 };
 
 const reduceCountryByAnimals = (countries, includedAnimalName) => {
-  return countries.reduce((reducedCountries, currentValue) => {
-    const people = reducePeopleByAnimals(
-      currentValue.people,
+  return countries.reduce((reducedCountries, currentCountry) => {
+    const reducedPeople = reducePeopleByAnimals(
+      currentCountry.people,
       includedAnimalName
     );
 
-    if (people.length > 0) {
-      return [...reducedCountries, { ...currentValue, people }];
+    if (reducedPeople.length > 0) {
+      return [
+        ...reducedCountries,
+        { ...currentCountry, people: reducedPeople },
+      ];
     }
 
     return reducedCountries;
