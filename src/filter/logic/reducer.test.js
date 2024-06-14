@@ -24,7 +24,7 @@ const mockedAnimals = [
 
 describe("reduce animals", () => {
   it("should return animals if string is included in their name", () => {
-    const filteredAnimals = reduceAnimalsByName(mockedAnimals, "c");
+    const filteredAnimals = reduceAnimalsByName(mockedAnimals, "uc");
 
     expect(filteredAnimals).toEqual([{ name: "Duck" }]);
   });
@@ -32,5 +32,10 @@ describe("reduce animals", () => {
     const filteredAnimals = reduceAnimalsByName(mockedAnimals, "z");
 
     expect(filteredAnimals).toEqual([]);
+  });
+  it("should return animals if string is included no matters of case of characters", () => {
+    const filteredAnimals = reduceAnimalsByName(mockedAnimals, "B");
+
+    expect(filteredAnimals).toEqual([{ name: "Badger" }, { name: "Cobra" }]);
   });
 });
